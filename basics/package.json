@@ -4,8 +4,8 @@
     "description":"",
     "main":"index.js",
     "scripts": {
-        "start":"node index",
-        "dev-start":"nodemon index"
+        "start":"node index.js",
+        "dev-start":"nodemon index.js"
     },
     "dependencies":{
         "express":"4.16.1"
