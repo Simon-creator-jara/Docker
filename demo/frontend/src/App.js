@@ -8,13 +8,13 @@ function App() {
   const [newTodo, setNewTodo] = useState("");
 
   const fetchTodos = async () => {
-    const response = await axios.get("http://todo-app:8000/todos");
+    const response = await axios.get("http://localhost:8000/todos");
     setTodos(response.data.todos);
   };
 
   const handleClick = async (e) => {
     e.preventDefault();
-    const { data } = await axios.post("http://todo-app:8000/todos", {
+    const { data } = await axios.post("http://localhost:8000/todos", {
       name: newTodo,
     });
 
@@ -31,7 +31,7 @@ function App() {
   };
 
   const handleDelete = async (id) => {
-    await axios.delete(`http://todo-app:8000/todos/${id}`);
+    await axios.delete(`http://localhost:8000/todos/${id}`);
 
     const updatedTodos = todos.filter((todos) => todos._id !== id);
 
@@ -39,7 +39,7 @@ function App() {
   };
 
   const handleToggle = async (id) => {
-    await axios.put(`http://todo-app:8000/todos/${id}`);
+    await axios.put(`http://localhost:8000/todos/${id}`);
 
     const updatedTodos = todos.map((todo) => {
       if (todo._id === id) {
